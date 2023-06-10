@@ -10,9 +10,10 @@ var (
 )
 
 func StartDB(name string) *leveldb.DB {
-	DB, err := leveldb.OpenFile(name+".db", nil)
+	DBsi, err := leveldb.OpenFile(name+".db", nil)
 	if err != nil {
 		fmt.Println("error: ", err)
 	}
+	DB = DBsi
 	return DB
 }

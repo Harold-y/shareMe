@@ -2,15 +2,14 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"shareMe/db"
 )
 
-func AddLink(c *gin.Context) {
+func AddNote(c *gin.Context) {
 	shareCode := db.GenerateShareCode()
 	param := make(map[string]interface{})
 	err := c.BindJSON(&param)
-	if err != nil || param["URL"] == nil || param["URL"] == "" {
+	if err != nil || param["Note"] == nil || param["Note"] == "" {
 		c.JSON(500, gin.H{"err": err})
 		return
 	}
@@ -18,7 +17,7 @@ func AddLink(c *gin.Context) {
 		c.JSON(500, gin.H{"status": "failed"})
 		return
 	}
-	res := db.CreateOtherRecord(shareCode, param["URL"].(string))
+	res := db.CreateOtherRecord(shareCode, param["Note"].(string))
 	if !res {
 		c.JSON(500, gin.H{"err": err})
 		return
@@ -26,11 +25,11 @@ func AddLink(c *gin.Context) {
 	c.JSON(200, gin.H{"status": "success", "shareCode": shareCode})
 }
 
-func GetLink(c *gin.Context) {
+func GetNote(c *gin.Context) {
 	shareCode := c.Param("shareCode")
 	if db.QueryShareCodeExist(shareCode) {
-		link := db.QueryOtherByShareCode(shareCode)
-		c.Redirect(http.StatusMovedPermanently, link)
+		note := db.QueryOtherByShareCode(shareCode)
+		c.JSON(200, gin.H{"status": "success", "note": note})
 	} else {
 		c.JSON(500, gin.H{"err": "Incorrect ShareCode"})
 	}

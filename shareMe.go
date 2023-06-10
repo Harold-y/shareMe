@@ -14,6 +14,7 @@ func main() {
 	util.SetConfig()
 
 	r := gin.Default()
+	r.MaxMultipartMemory = int64(util.MaxUploadSize)
 	controller.SetPath(r)
 	err := r.Run()
 	if err != nil {

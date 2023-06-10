@@ -4,11 +4,16 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
 var (
-	AdminToken string
+	AdminToken     string
+	Delim          string
+	UploadFolder   string
+	MaxUploadSize  int
+	DestroyOnStart string
 )
 
 func SetConfig() {
@@ -28,6 +33,21 @@ func SetConfig() {
 			key, value := words[0], words[1]
 			if key == "AdminToken" {
 				AdminToken = value
+			}
+			if key == "Delim" {
+				Delim = value
+			}
+			if key == "UploadFolder" {
+				UploadFolder = value
+			}
+			if key == "MaxUploadSize" {
+				MaxUploadSize, err = strconv.Atoi(value)
+				if err != nil {
+					fmt.Println("MaxUploadSize Error")
+				}
+			}
+			if key == "DestroyOnStart" {
+				DestroyOnStart = value
 			}
 		}
 	}

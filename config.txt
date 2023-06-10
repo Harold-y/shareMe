@@ -1,1 +1,5 @@
 AdminToken March7th
+Delim ||<_>-<_>||
+UploadFolder ./upload
+MaxUploadSize 50
+DestroyOnStart Yes
