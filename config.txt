@@ -3,3 +3,5 @@ Delim ||<_>-<_>||
 UploadFolder ./upload
 MaxUploadSize 50
 DestroyOnStart Yes
+DailyDestroyHour 20
+Port :8569

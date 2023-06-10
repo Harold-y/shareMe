@@ -9,11 +9,13 @@ import (
 )
 
 var (
-	AdminToken     string
-	Delim          string
-	UploadFolder   string
-	MaxUploadSize  int
-	DestroyOnStart string
+	AdminToken       string
+	Delim            string
+	UploadFolder     string
+	MaxUploadSize    int
+	DestroyOnStart   string
+	DailyDestroyHour int
+	Port             string
 )
 
 func SetConfig() {
@@ -48,6 +50,15 @@ func SetConfig() {
 			}
 			if key == "DestroyOnStart" {
 				DestroyOnStart = value
+			}
+			if key == "DailyDestroyHour" {
+				DailyDestroyHour, err = strconv.Atoi(value)
+				if err != nil || DailyDestroyHour > 25 || DailyDestroyHour < 0 {
+					fmt.Println("Destroy Hour Error")
+				}
+			}
+			if key == "Port" {
+				Port = value
 			}
 		}
 	}
