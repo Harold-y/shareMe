@@ -46,3 +46,21 @@ ShareMe是一个轻量级的，方便、快速地共享文件、URL链接和笔�
 仅需四位！
 
 <br/><img src="https://raw.githubusercontent.com/Harold-y/shareMe/main/images/5.png" style="width:650px"/>
+
+#### 部署
+
+你的服务器/主机需要有: node.js (>=v18), Go (>=v1.16)
+
+前端:
+- 更改 main.js "app.config.globalProperties.BASE_URL" 成你自己的后端URL
+- npm i
+- npm run build
+- npm run preview -- --host (或者其它Vite部署方式)
+
+后端:
+- go build
+- 执行build好的文件（根据机器不同而不同）
+
+#### Docker
+
+尚待开发
