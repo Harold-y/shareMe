@@ -6,9 +6,9 @@ ShareMe is a light-weighted application that enable convenient, quick sharing of
 
 - shareCode (length of 4, e.g., AU8I) is all you need
 - 100% "Handwritten", 0% of AI-enabled tools
-- Backend: Go
+- Backend: Go, levelDB
 - Frontend: Vue3 + Vite
-- Language Support: English, 中文
+- Language Support: English, <a href="https://github.com/Harold-y/shareMe/blob/main/README_CN.md">中文</a>
 
 #### File Sharing
 
