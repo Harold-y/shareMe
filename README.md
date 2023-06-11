@@ -46,3 +46,21 @@ Retrieve File/URL/Note in the home page! Super Easy and Convenient! The applicat
 4-digit/chars, as agreed.
 
 <br/><img src="https://raw.githubusercontent.com/Harold-y/shareMe/main/images/5.png" style="width:650px"/>
+
+#### Deploy
+
+You need to have: node.js (>=v18), Go (>=v1.16)
+
+Frontend:
+- change main.js "app.config.globalProperties.BASE_URL" to your URL
+- npm i
+- npm run build
+- npm run preview -- --host (or other vite endoresed methods)
+
+Backend:
+- go build
+- execute the built file (varies depend on the machine)
+
+#### Docker
+
+Under development
