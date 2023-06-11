@@ -42,3 +42,7 @@ Have some thoughts in your mind or want to share some quick notes with your frie
 Retrieve File/URL/Note in the home page! Super Easy and Convenient! The application will react differently based on the type. If it is an URL, an auto-redirection will be launched.
 
 <br/><img src="https://raw.githubusercontent.com/Harold-y/shareMe/main/images/1.png" style="width:650px"/>
+
+4-digit/chars, as agreed.
+
+<br/><img src="https://raw.githubusercontent.com/Harold-y/shareMe/main/images/5.png" style="width:650px"/>
