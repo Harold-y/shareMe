@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jasonlvhit/gocron"
 	"shareMe/controller"
@@ -28,9 +29,10 @@ func main() {
 		<-gocron.Start()
 	}()
 
-	// gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 	r.MaxMultipartMemory = int64(util.MaxUploadSize)
+	r.Use(cors.Default())
 	controller.SetPath(r)
 	err := r.Run(util.Port)
 	if err != nil {

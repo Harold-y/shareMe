@@ -1,0 +1,19 @@
+Congress, Party, Number
+National Congress, 澂冰社民党, 248
+National Congress, 澂冰工党, 121
+National Congress, 澂冰新民党, 20
+National Congress, 澂冰共产党, 7
+National Congress, 中华进步联盟, 3
+National Congress, 无党派, 1
+Zhuoling Legislative Council, 民主党, 30
+Zhuoling Legislative Council, 澂冰社民党（卓陵）, 23
+Zhuoling Legislative Council, 澂冰工党（卓陵）, 18
+Zhuoling Legislative Council, 九七商盟, 20
+Zhuoling Legislative Council, 无党派, 9
+Yingxu Legislative Council, 民主党, 42
+Yingxu Legislative Council, 九七商盟, 20
+Yingxu Legislative Council, 澂冰社民党（莹栩）, 19
+Yingxu Legislative Council, 澂冰工党（莹栩）, 12
+Yingxu Legislative Council, 无党派, 7
+
+

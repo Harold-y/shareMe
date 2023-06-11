@@ -1,0 +1,63 @@
+---
+title: "Chengbing"
+author: "Yixuan Ye"
+date: '2023-04-08'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+suppressMessages(library(tidyverse))
+```
+
+
+```{r}
+current_data_legislative = read_csv("cbr_congress1.txt", show_col_types = FALSE)
+party_colors = read_csv("party_colors.txt", show_col_types = FALSE)
+```
+
+```{r}
+current_data_legislative = current_data_legislative %>% left_join(party_colors, by="Party")
+```
+
+
+```{r}
+current_data_national = current_data_legislative %>% filter(Congress == "National Congress")
+Zhuoling_le = current_data_legislative %>% filter(Congress == "Zhuoling Legislative Council")
+Yingxu_le = current_data_legislative %>% filter(Congress == "Yingxu Legislative Council")
+```
+
+```{r}
+ggplot(data = current_data_national) + 
+  geom_col(aes(x=reorder(Party, -Number), y=Number, fill = Color), show.legend = T) + 
+  scale_color_identity(aesthetics = "fill") +
+  xlab("党派") + 
+  ylab("人数") +
+  ggtitle("澂冰国家议会（上议院）各党派人数") +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = Zhuoling_le) + 
+  geom_col(aes(x=reorder(Party, -Number), y=Number, fill = Color), show.legend = T) + 
+  scale_color_identity(aesthetics = "fill") +
+  xlab("党派") + 
+  ylab("人数") +
+  ggtitle("卓陵特别行政区立法会各党派人数") +
+  theme_bw()
+```
+
+```{r}
+ggplot(data = Yingxu_le) + 
+  geom_col(aes(x=reorder(Party, -Number), y=Number, fill = Color), show.legend = T) + 
+  scale_color_identity(aesthetics = "fill") +
+  xlab("党派") + 
+  ylab("人数") +
+  ggtitle("莹栩特别行政区立法会各党派人数") +
+  theme_bw()
+```

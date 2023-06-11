@@ -21,8 +21,13 @@ func SetPath(router *gin.Engine) {
 	fileRoute.POST("/add", service.AddFile)
 	fileRoute.GET("/:shareCode", service.GetFile)
 	fileRoute.GET("/download/:shareCode/:fileName", service.DownloadFile)
+	fileRoute.GET("/download/all/:shareCode", service.DownloadAllFile)
 
 	// Destroy
 	dbRoute := router.Group("/admin")
 	dbRoute.POST("/destroy", service.Destroy)
+
+	// Get All In One Place
+	getRoute := router.Group("/get")
+	getRoute.GET("/:shareCode", service.GetThing)
 }

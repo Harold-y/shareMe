@@ -18,7 +18,7 @@ func AddLink(c *gin.Context) {
 		c.JSON(500, gin.H{"status": "failed"})
 		return
 	}
-	res := db.CreateOtherRecord(shareCode, param["URL"].(string))
+	res := db.CreateOtherRecord(shareCode, param["URL"].(string), "URL")
 	if !res {
 		c.JSON(500, gin.H{"err": err})
 		return

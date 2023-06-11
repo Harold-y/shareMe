@@ -2,6 +2,6 @@ AdminToken March7th
 Delim ||<_>-<_>||
 UploadFolder ./upload
 MaxUploadSize 50
-DestroyOnStart Yes
+DestroyOnStart No
 DailyDestroyHour 20
 Port :8569

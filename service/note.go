@@ -17,7 +17,7 @@ func AddNote(c *gin.Context) {
 		c.JSON(500, gin.H{"status": "failed"})
 		return
 	}
-	res := db.CreateOtherRecord(shareCode, param["Note"].(string))
+	res := db.CreateOtherRecord(shareCode, param["Note"].(string), "Note")
 	if !res {
 		c.JSON(500, gin.H{"err": err})
 		return

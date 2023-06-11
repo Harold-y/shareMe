@@ -46,6 +46,7 @@ func CreateFileRecord(fileNames []string, shareCode string) bool {
 		valToStore += fileNames[len(fileNames)-1]
 	}
 	err := DB.Put([]byte(shareCode), []byte(valToStore), nil)
+	err = DB.Put([]byte(shareCode+"_T"), []byte("File"), nil)
 	if err != nil {
 		return false
 	}
@@ -54,6 +55,7 @@ func CreateFileRecord(fileNames []string, shareCode string) bool {
 
 func PoolByShareCode(shareCode string) bool {
 	err := DB.Delete([]byte(shareCode), nil)
+	err = DB.Delete([]byte(shareCode+"_T"), nil)
 	if err != nil {
 		return false
 	}
@@ -71,6 +73,14 @@ func QueryShareCodeExist(shareCode string) bool {
 	return false
 }
 
+func QueryShareCodeType(shareCode string) string {
+	data, err := DB.Get([]byte(shareCode+"_T"), nil)
+	if err != nil {
+		return "Error"
+	}
+	return string(data[:])
+}
+
 func QueryFileByShareCode(shareCode string) []string {
 	var returnList []string
 	data, err := DB.Get([]byte(shareCode), nil)
@@ -84,8 +94,9 @@ func QueryFileByShareCode(shareCode string) []string {
 	return returnList
 }
 
-func CreateOtherRecord(shareCode string, info string) bool {
+func CreateOtherRecord(shareCode string, info string, recordType string) bool {
 	err := DB.Put([]byte(shareCode), []byte(info), nil)
+	err = DB.Put([]byte(shareCode+"_T"), []byte(recordType), nil)
 	if err != nil {
 		return false
 	}
