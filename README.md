@@ -51,16 +51,25 @@ Retrieve File/URL/Note in the home page! Super Easy and Convenient! The applicat
 
 You need to have: node.js (>=v18), Go (>=v1.16)
 
-Frontend:
+Frontend (default port 4173, change by adding --port <port> in the npm run preview):
 - change main.js "app.config.globalProperties.BASE_URL" to your URL
 - npm i
 - npm run build
 - npm run preview -- --host (or other vite endoresed methods)
 
-Backend:
+Backend (default port 8569, change by editing config file):
 - go build
 - execute the built file (varies depend on the machine)
 
+Settings (config.txt):
+- AdminToken: Token used to manually kill the files and DB record (destroy) (default March7th 三月七真的很好看！)
+- Delim: delimiter used to separate file names, no file name can contain these symbol (default ||<_>-<_>||)
+- UploadFolder: the folder to store the files (default ./upload)
+- MaxUploadSize: the max memory to process the file (default 50M)
+- DestroyOnStart: whether to execute destroy on start (default No, change to Yes to enable)
+- DailyDestroyHour: how long to execute destroy per hour (default 20)
+- Port: the port to run the backend (default 8569)
+  
 #### Docker
 
 Under development
