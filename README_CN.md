@@ -51,16 +51,25 @@ ShareMe是一个轻量级的，方便、快速地共享文件、URL链接和笔�
 
 你的服务器/主机需要有: node.js (>=v18), Go (>=v1.16)
 
-前端:
+前端（默认 port 4173, 通过添加--port <port> 参数在执行 npm run preview 的时候）:
 - 更改 main.js "app.config.globalProperties.BASE_URL" 成你自己的后端URL
 - npm i
 - npm run build
 - npm run preview -- --host (或者其它Vite部署方式)
 
-后端:
+后端（默认 port 8569, 在config.txt更改）:
 - go build
 - 执行build好的文件（根据机器不同而不同）
 
+后端设置 (config.txt):
+- AdminToken: 用于手动清理文件和DB记录的令牌（默认为March7th。三月七真的很好看！）
+- Delim: 用于分隔文件名的分隔符，任何文件名都不能包含这些符号（默认 ||<_>-<_>||）
+- UploadFolder：存储文件的文件夹（默认为./upload）
+- MaxUploadSize：处理文件的最大内存（默认为50M）
+- DestroyOnStart：是否在启动时执行清理文件和DB记录（默认为No，改成Yes即可启用）
+- DailyDestroyHour：每小时执行清理的时间（默认为20）
+- Port：运行后台的端口（默认为8569）。
+  
 #### Docker
 
 尚待开发
