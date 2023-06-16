@@ -9,7 +9,8 @@ export default {
   data() {
     return {
       shareCode_: this.shareCode,
-      note_: this.note,
+      note_: "",
+      note_br: "",
     }
   },
   methods: {
@@ -34,6 +35,7 @@ export default {
         .then((response) => {
           // console.log(response)
           this.note_ = response.data.note;
+          this.note_br = this.note_.replace(/\n/g, '<br>')
         })
         .catch(function (error) { // 请求失败处理
           // console.log(error);
@@ -47,12 +49,12 @@ export default {
   <div id="container1">
     <n-card title="Note 笔记" style="margin-bottom: 16px; border-radius: 15px">
       <n-space vertical id="space1">
-        <n-h1>{{ this.shareCode_ }}</n-h1>
+        <n-h2>{{ this.shareCode_ }}</n-h2>
         <n-button strong secondary round type="info" style="float: right; margin: 1rem" @click="downloadNote">
           <n-icon><document-icon /></n-icon>Download 下载笔记
         </n-button>
-        <n-p>
-          {{ this.note_ }}
+        <n-p v-html="note_br">
+
         </n-p>
       </n-space>
     </n-card>

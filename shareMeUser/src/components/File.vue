@@ -18,6 +18,7 @@ export default {
       previewType: null,
       previewImageSrc: null,
       prevText: null,
+      prevTextBr: null,
     }
   },
   components: {
@@ -53,6 +54,7 @@ export default {
               } else {
                 this.previewType = "text"
                 this.prevText = await blob.text()
+                this.prevTextBr = this.prevText.replace(/\n/g, '<br>')
                 this.showModal = true
               }
             } else if (this.programTypes.includes(extension)) {
@@ -141,8 +143,8 @@ export default {
             :src="previewImageSrc"
             v-show="previewType === 'img'"
         />
-        <n-p v-show="previewType === 'text' || previewType === 'program'">
-          {{prevText}}
+        <n-p v-show="previewType === 'text' || previewType === 'program'" v-html="prevTextBr">
+
         </n-p>
       </n-card>
     </n-modal>
